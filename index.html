@@ -11,799 +11,694 @@
 
 <body>
 
-  <!-- =========================
-       NAVIGATION
-  ========================== -->
+<header class="site-header">
+  <div class="nav-container">
 
-  <header class="site-header">
+    <a href="#home" class="nav-logo">
+      LEE'S PLACE
+      <span>APARTELLE</span>
+    </a>
 
-    <div class="nav-container">
+    <nav class="main-nav">
+      <a href="#home">HOME</a>
+      <a href="#rooms">ROOMS</a>
+      <a href="#amenities">AMENITIES</a>
+      <a href="#location">LOCATION</a>
 
-      <a href="#home" class="nav-logo">
-        LEE'S PLACE
-        <span>APARTELLE</span>
+      <a href="#booking-search" class="nav-book">
+        BOOK YOUR STAY
       </a>
+    </nav>
 
-      <nav class="main-nav">
+    <button
+      class="mobile-menu"
+      id="mobileMenu"
+      type="button"
+      aria-label="Open menu"
+    >
+      ☰
+    </button>
 
-        <a href="#home">HOME</a>
-        <a href="#rooms">ROOMS</a>
-        <a href="#amenities">AMENITIES</a>
-        <a href="#location">LOCATION</a>
+  </div>
+</header>
 
-        <a href="#booking-search" class="nav-book">
-          BOOK YOUR STAY
-        </a>
 
-      </nav>
+<main id="home">
 
-      <button
-        class="mobile-menu"
-        id="mobileMenu"
-        type="button"
-        aria-label="Open menu"
+  <!-- HERO -->
+
+  <section class="hero">
+
+    <img
+      class="hero-image"
+      src="https://raw.githubusercontent.com/mickeymoto99-rgb/lees-place-booking/main/images/hero.png"
+      alt="Lee's Place Apartelle"
+    >
+
+    <div class="hero-overlay"></div>
+
+    <div class="hero-bottom">
+
+      <div class="hero-tagline">
+        COMFORT
+        <span>•</span>
+        CONVENIENCE
+        <span>•</span>
+        HOME
+      </div>
+
+      <a
+        href="#booking-search"
+        class="hero-book-button"
       >
-        ☰
-      </button>
+        CHECK AVAILABILITY
+      </a>
 
     </div>
 
-  </header>
+  </section>
 
 
-  <!-- =========================
-       HERO
-  ========================== -->
+  <!-- BOOKING SEARCH -->
 
-  <main id="home">
+  <section
+    class="booking-wrapper"
+    id="booking-search"
+  >
 
-    <section class="hero">
+    <div class="booking-card">
 
-      <!-- Your real Lee's Place building photo -->
-      <div class="hero-image"></div>
+      <div class="booking-heading">
 
-      <div class="hero-bottom">
+        <p>PLAN YOUR STAY</p>
 
-        <div class="hero-tagline">
-          COMFORT
-          <span>•</span>
-          CONVENIENCE
-          <span>•</span>
-          HOME
-        </div>
+        <h1>Find Your Room</h1>
 
-        <a
-          href="#booking-search"
-          class="hero-book-button"
-        >
-          CHECK AVAILABILITY
-        </a>
+        <span>
+          Select your dates and preferences to check availability.
+        </span>
 
       </div>
 
-    </section>
 
+      <div class="search-fields">
 
-    <!-- =========================
-         BOOKING SEARCH
-    ========================== -->
+        <div class="search-field">
 
-    <section
-      class="booking-wrapper"
-      id="booking-search"
-    >
+          <label for="checkIn">
+            CHECK-IN
+          </label>
 
-      <div class="booking-card">
-
-        <div class="booking-heading">
-
-          <p>PLAN YOUR STAY</p>
-
-          <h1>Find Your Room</h1>
-
-          <span>
-            Select your dates and preferences to check availability.
-          </span>
-
-        </div>
-
-
-        <div class="search-fields">
-
-
-          <!-- CHECK-IN -->
-
-          <div class="search-field">
-
-            <label for="checkIn">
-              CHECK-IN
-            </label>
-
-            <input
-              type="date"
-              id="checkIn"
-            >
-
-          </div>
-
-
-          <!-- CHECK-OUT -->
-
-          <div class="search-field">
-
-            <label for="checkOut">
-              CHECK-OUT
-            </label>
-
-            <input
-              type="date"
-              id="checkOut"
-            >
-
-          </div>
-
-
-          <!-- ADULTS -->
-
-          <div class="search-field">
-
-            <label for="adults">
-              ADULTS
-            </label>
-
-            <select id="adults">
-
-              <option value="1">
-                1 Adult
-              </option>
-
-              <option
-                value="2"
-                selected
-              >
-                2 Adults
-              </option>
-
-              <option value="3">
-                3 Adults
-              </option>
-
-              <option value="4">
-                4 Adults
-              </option>
-
-              <option value="5">
-                5 Adults
-              </option>
-
-              <option value="6">
-                6 Adults
-              </option>
-
-              <option value="7">
-                7 Adults
-              </option>
-
-              <option value="8">
-                8 Adults
-              </option>
-
-            </select>
-
-          </div>
-
-
-          <!-- CHILDREN -->
-
-          <div class="search-field">
-
-            <label for="children">
-              CHILDREN
-            </label>
-
-            <select id="children">
-
-              <option
-                value="0"
-                selected
-              >
-                0 Children
-              </option>
-
-              <option value="1">
-                1 Child
-              </option>
-
-              <option value="2">
-                2 Children
-              </option>
-
-              <option value="3">
-                3 Children
-              </option>
-
-              <option value="4">
-                4 Children
-              </option>
-
-            </select>
-
-          </div>
-
-
-          <!-- ROOM TYPE -->
-
-          <div class="search-field">
-
-            <label for="roomType">
-              ROOM TYPE
-            </label>
-
-            <select id="roomType">
-
-              <option value="all">
-                Any Room
-              </option>
-
-              <option value="standard">
-                Standard
-              </option>
-
-              <option value="family">
-                Family
-              </option>
-
-              <option value="deluxe">
-                Deluxe
-              </option>
-
-            </select>
-
-          </div>
-
-
-          <!-- SEARCH BUTTON -->
-
-          <button
-            id="searchBtn"
-            class="search-button"
-            type="button"
+          <input
+            type="date"
+            id="checkIn"
           >
-            CHECK AVAILABILITY
-          </button>
 
         </div>
 
 
-        <div
-          id="searchMessage"
-          class="search-message"
-        ></div>
+        <div class="search-field">
 
-      </div>
+          <label for="checkOut">
+            CHECK-OUT
+          </label>
 
-    </section>
-
-
-    <!-- =========================
-         AMENITIES
-    ========================== -->
-
-    <section
-      class="amenities-section"
-      id="amenities"
-    >
-
-      <div class="section-heading">
-
-        <p>LEE'S PLACE</p>
-
-        <h2>Comfort & Convenience</h2>
-
-        <span>
-          Everything you need for a comfortable stay in Roxas City.
-        </span>
-
-      </div>
-
-
-      <div class="amenities-grid">
-
-
-        <!-- COMFY ROOMS -->
-
-        <div class="amenity">
-
-          <div class="amenity-icon">
-            🛏
-          </div>
-
-          <h3>
-            COMFY ROOMS
-          </h3>
-
-          <p>
-            Clean and comfortable rooms designed to make you feel at home.
-          </p>
+          <input
+            type="date"
+            id="checkOut"
+          >
 
         </div>
 
 
-        <!-- FREE WIFI -->
+        <div class="search-field">
 
-        <div class="amenity">
+          <label for="adults">
+            ADULTS
+          </label>
 
-          <div class="amenity-icon">
-            ◉
-          </div>
+          <select id="adults">
 
-          <h3>
-            FREE WIFI
-          </h3>
+            <option value="1">1 Adult</option>
 
-          <p>
-            Stay connected with complimentary Wi-Fi for our guests.
-          </p>
-
-        </div>
-
-
-        <!-- SECURITY CAMERAS -->
-
-        <div class="amenity">
-
-          <div class="amenity-icon">
-            ◇
-          </div>
-
-          <h3>
-            SECURITY CAMERAS
-          </h3>
-
-          <p>
-            Security cameras are installed throughout key areas of the property.
-          </p>
-
-        </div>
-
-
-        <!-- PARKING -->
-
-        <div class="amenity">
-
-          <div class="amenity-icon">
-            🚗
-          </div>
-
-          <h3>
-            PARKING SPACE
-          </h3>
-
-          <p>
-            Convenient parking space available for our guests.
-          </p>
-
-        </div>
-
-
-        <!-- CLEAN & COZY -->
-
-        <div class="amenity">
-
-          <div class="amenity-icon">
-            ♧
-          </div>
-
-          <h3>
-            CLEAN & COZY
-          </h3>
-
-          <p>
-            A welcoming and relaxing environment for your stay.
-          </p>
-
-        </div>
-
-
-      </div>
-
-    </section>
-
-
-    <!-- =========================
-         ROOMS
-    ========================== -->
-
-    <section
-      class="rooms-section"
-      id="rooms"
-    >
-
-      <div class="section-heading">
-
-        <p>STAY WITH US</p>
-
-        <h2>Our Rooms</h2>
-
-        <span>
-          Choose the room that best fits your stay.
-        </span>
-
-      </div>
-
-
-      <div class="rooms-intro">
-
-        <div>
-
-          <strong>
-            10 ROOMS
-          </strong>
-
-          <span>
-            Available at Lee's Place
-          </span>
-
-        </div>
-
-
-        <div>
-
-          <strong>
-            ROXAS CITY
-          </strong>
-
-          <span>
-            Capiz, Philippines
-          </span>
-
-        </div>
-
-      </div>
-
-
-      <!--
-        Room results will appear here
-        after the guest searches.
-      -->
-
-      <div
-        id="results"
-        class="results hidden"
-      >
-
-        <div class="result-heading">
-
-          <p>
-            AVAILABLE ROOMS
-          </p>
-
-          <h2>
-            Rooms for Your Stay
-          </h2>
-
-          <span id="resultSummary"></span>
-
-        </div>
-
-
-        <div
-          id="roomList"
-          class="room-list"
-        ></div>
-
-      </div>
-
-    </section>
-
-
-    <!-- =========================
-         BOOKING FORM
-    ========================== -->
-
-    <section
-      id="booking"
-      class="booking-section hidden"
-    >
-
-      <div class="section-heading">
-
-        <p>
-          RESERVE YOUR ROOM
-        </p>
-
-        <h2>
-          Guest Information
-        </h2>
-
-        <span>
-          Complete the information below to submit your booking request.
-        </span>
-
-      </div>
-
-
-      <div
-        id="selectedSummary"
-        class="selected-summary"
-      ></div>
-
-
-      <form id="bookingForm">
-
-        <input
-          type="hidden"
-          id="selectedRoom"
-        >
-
-
-        <div class="form-grid">
-
-
-          <div class="form-field">
-
-            <label for="guestName">
-              FULL NAME *
-            </label>
-
-            <input
-              type="text"
-              id="guestName"
-              required
-              placeholder="Your full name"
+            <option
+              value="2"
+              selected
             >
+              2 Adults
+            </option>
 
-          </div>
+            <option value="3">3 Adults</option>
+            <option value="4">4 Adults</option>
+            <option value="5">5 Adults</option>
+            <option value="6">6 Adults</option>
+            <option value="7">7 Adults</option>
+            <option value="8">8 Adults</option>
+
+          </select>
+
+        </div>
 
 
-          <div class="form-field">
+        <div class="search-field">
 
-            <label for="mobile">
-              MOBILE NUMBER *
-            </label>
+          <label for="children">
+            CHILDREN
+          </label>
 
-            <input
-              type="tel"
-              id="mobile"
-              required
-              placeholder="09XXXXXXXXX"
+          <select id="children">
+
+            <option
+              value="0"
+              selected
             >
+              0 Children
+            </option>
 
-          </div>
+            <option value="1">1 Child</option>
+            <option value="2">2 Children</option>
+            <option value="3">3 Children</option>
+            <option value="4">4 Children</option>
 
+          </select>
 
-          <div class="form-field">
-
-            <label for="email">
-              EMAIL ADDRESS *
-            </label>
-
-            <input
-              type="email"
-              id="email"
-              required
-              placeholder="you@example.com"
-            >
-
-          </div>
+        </div>
 
 
-          <div class="form-field">
+        <div class="search-field">
 
-            <label for="payment">
-              PAYMENT METHOD *
-            </label>
+          <label for="roomType">
+            ROOM TYPE
+          </label>
 
-            <select
-              id="payment"
-              required
-            >
+          <select id="roomType">
 
-              <option value="Cash">
-                Cash
-              </option>
+            <option value="all">
+              Any Room
+            </option>
 
-              <option value="GCash">
-                GCash
-              </option>
+            <option value="standard">
+              Standard
+            </option>
 
-            </select>
+            <option value="family">
+              Family
+            </option>
 
-          </div>
+            <option value="deluxe">
+              Deluxe
+            </option>
 
-
-          <div class="form-field full-width">
-
-            <label for="gcashRef">
-
-              GCASH REFERENCE NUMBER
-
-              <span>
-                (optional)
-              </span>
-
-            </label>
-
-            <input
-              type="text"
-              id="gcashRef"
-              placeholder="If payment was made through GCash"
-            >
-
-          </div>
-
-
-          <div class="form-field full-width">
-
-            <label for="special">
-              SPECIAL REQUESTS
-            </label>
-
-            <textarea
-              id="special"
-              rows="4"
-              placeholder="Anything you'd like us to know?"
-            ></textarea>
-
-          </div>
-
+          </select>
 
         </div>
 
 
         <button
-          type="submit"
-          class="submit-button"
+          id="searchBtn"
+          class="search-button"
+          type="button"
         >
-          SUBMIT BOOKING REQUEST
+          CHECK AVAILABILITY
         </button>
 
-
-        <div
-          id="bookingMessage"
-          class="booking-message"
-        ></div>
-
-      </form>
-
-    </section>
-
-
-    <!-- =========================
-         CONFIRMATION
-    ========================== -->
-
-    <section
-      id="confirmation"
-      class="confirmation hidden"
-    >
-
-      <div class="confirmation-icon">
-        ✓
       </div>
 
-      <p>
-        BOOKING REQUEST RECEIVED
-      </p>
 
-      <h2>
-        Thank You
-      </h2>
+      <div
+        id="searchMessage"
+        class="search-message"
+      ></div>
+
+    </div>
+
+  </section>
+
+
+  <!-- AMENITIES -->
+
+  <section
+    class="amenities-section"
+    id="amenities"
+  >
+
+    <div class="section-heading">
+
+      <p>LEE'S PLACE</p>
+
+      <h2>Comfort & Convenience</h2>
 
       <span>
-        Your booking request has been recorded.
+        Everything you need for a comfortable stay in Roxas City.
       </span>
 
+    </div>
 
-      <div class="booking-id">
 
-        <small>
-          BOOKING ID
-        </small>
+    <div class="amenities-grid">
 
-        <strong id="bookingId"></strong>
+      <div class="amenity">
+
+        <div class="amenity-icon">
+          🛏
+        </div>
+
+        <h3>COMFY ROOMS</h3>
+
+        <p>
+          Clean and comfortable rooms designed to make you feel at home.
+        </p>
 
       </div>
 
 
-      <p class="confirmation-note">
-        Please wait for Lee's Place to confirm your reservation.
-      </p>
+      <div class="amenity">
 
-    </section>
+        <div class="amenity-icon">
+          ◉
+        </div>
 
-
-    <!-- =========================
-         LOCATION
-    ========================== -->
-
-    <section
-      class="location-section"
-      id="location"
-    >
-
-      <div class="location-content">
+        <h3>FREE WIFI</h3>
 
         <p>
-          FIND US
+          Stay connected with complimentary Wi-Fi for our guests.
+        </p>
+
+      </div>
+
+
+      <div class="amenity">
+
+        <div class="amenity-icon">
+          ◇
+        </div>
+
+        <h3>SECURITY CAMERAS</h3>
+
+        <p>
+          Security cameras are installed throughout key areas of the property.
+        </p>
+
+      </div>
+
+
+      <div class="amenity">
+
+        <div class="amenity-icon">
+          🚗
+        </div>
+
+        <h3>PARKING SPACE</h3>
+
+        <p>
+          Convenient parking space available for our guests.
+        </p>
+
+      </div>
+
+
+      <div class="amenity">
+
+        <div class="amenity-icon">
+          ♧
+        </div>
+
+        <h3>CLEAN & COZY</h3>
+
+        <p>
+          A welcoming and relaxing environment for your stay.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ROOMS -->
+
+  <section
+    class="rooms-section"
+    id="rooms"
+  >
+
+    <div class="section-heading">
+
+      <p>STAY WITH US</p>
+
+      <h2>Our Rooms</h2>
+
+      <span>
+        Choose the room that best fits your stay.
+      </span>
+
+    </div>
+
+
+    <div class="rooms-intro">
+
+      <div>
+
+        <strong>10 ROOMS</strong>
+
+        <span>
+          Available at Lee's Place
+        </span>
+
+      </div>
+
+
+      <div>
+
+        <strong>ROXAS CITY</strong>
+
+        <span>
+          Capiz, Philippines
+        </span>
+
+      </div>
+
+    </div>
+
+
+    <div
+      id="results"
+      class="results hidden"
+    >
+
+      <div class="result-heading">
+
+        <p>
+          AVAILABLE ROOMS
         </p>
 
         <h2>
-          Lee's Place Apartelle
+          Rooms for Your Stay
         </h2>
 
-        <span>
-          Lanot, Roxas City, Capiz<br>
-          Philippines
-        </span>
-
-        <a
-          href="#booking-search"
-          class="location-button"
-        >
-          BOOK YOUR STAY
-        </a>
+        <span id="resultSummary"></span>
 
       </div>
 
 
-      <div class="location-placeholder">
+      <div
+        id="roomList"
+        class="room-list"
+      ></div>
 
-        <span>
-          ROXAS CITY
-        </span>
+    </div>
 
-        <small>
-          CAPIZ, PHILIPPINES
-        </small>
+  </section>
+
+
+  <!-- BOOKING FORM -->
+
+  <section
+    id="booking"
+    class="booking-section hidden"
+  >
+
+    <div class="section-heading">
+
+      <p>
+        RESERVE YOUR ROOM
+      </p>
+
+      <h2>
+        Guest Information
+      </h2>
+
+      <span>
+        Complete the information below to submit your booking request.
+      </span>
+
+    </div>
+
+
+    <div
+      id="selectedSummary"
+      class="selected-summary"
+    ></div>
+
+
+    <form id="bookingForm">
+
+      <input
+        type="hidden"
+        id="selectedRoom"
+      >
+
+
+      <div class="form-grid">
+
+        <div class="form-field">
+
+          <label for="guestName">
+            FULL NAME *
+          </label>
+
+          <input
+            type="text"
+            id="guestName"
+            required
+            placeholder="Your full name"
+          >
+
+        </div>
+
+
+        <div class="form-field">
+
+          <label for="mobile">
+            MOBILE NUMBER *
+          </label>
+
+          <input
+            type="tel"
+            id="mobile"
+            required
+            placeholder="09XXXXXXXXX"
+          >
+
+        </div>
+
+
+        <div class="form-field">
+
+          <label for="email">
+            EMAIL ADDRESS *
+          </label>
+
+          <input
+            type="email"
+            id="email"
+            required
+            placeholder="you@example.com"
+          >
+
+        </div>
+
+
+        <div class="form-field">
+
+          <label for="payment">
+            PAYMENT METHOD *
+          </label>
+
+          <select
+            id="payment"
+            required
+          >
+
+            <option value="Cash">
+              Cash
+            </option>
+
+            <option value="GCash">
+              GCash
+            </option>
+
+          </select>
+
+        </div>
+
+
+        <div class="form-field full-width">
+
+          <label for="gcashRef">
+            GCASH REFERENCE NUMBER
+            <span>(optional)</span>
+          </label>
+
+          <input
+            type="text"
+            id="gcashRef"
+            placeholder="If payment was made through GCash"
+          >
+
+        </div>
+
+
+        <div class="form-field full-width">
+
+          <label for="special">
+            SPECIAL REQUESTS
+          </label>
+
+          <textarea
+            id="special"
+            rows="4"
+            placeholder="Anything you'd like us to know?"
+          ></textarea>
+
+        </div>
 
       </div>
 
-    </section>
 
-  </main>
+      <button
+        type="submit"
+        class="submit-button"
+      >
+        SUBMIT BOOKING REQUEST
+      </button>
 
 
-  <!-- =========================
-       FOOTER
-  ========================== -->
+      <div
+        id="bookingMessage"
+        class="booking-message"
+      ></div>
 
-  <footer>
+    </form>
 
-    <div class="footer-logo">
+  </section>
 
-      LEE'S PLACE
 
-      <span>
-        APARTELLE
-      </span>
+  <!-- CONFIRMATION -->
+
+  <section
+    id="confirmation"
+    class="confirmation hidden"
+  >
+
+    <div class="confirmation-icon">
+      ✓
+    </div>
+
+    <p>
+      BOOKING REQUEST RECEIVED
+    </p>
+
+    <h2>
+      Thank You
+    </h2>
+
+    <span>
+      Your booking request has been recorded.
+    </span>
+
+
+    <div class="booking-id">
+
+      <small>
+        BOOKING ID
+      </small>
+
+      <strong id="bookingId"></strong>
 
     </div>
 
 
-    <div class="footer-info">
+    <p class="confirmation-note">
+      Please wait for Lee's Place to confirm your reservation.
+    </p>
+
+  </section>
+
+
+  <!-- LOCATION -->
+
+  <section
+    class="location-section"
+    id="location"
+  >
+
+    <div class="location-content">
+
+      <p>
+        FIND US
+      </p>
+
+      <h2>
+        Lee's Place Apartelle
+      </h2>
 
       <span>
-        Lanot, Roxas City, Capiz
+        Lanot, Roxas City, Capiz<br>
+        Philippines
       </span>
 
-      <span>
-        Comfort • Convenience • Home
-      </span>
+      <a
+        href="#booking-search"
+        class="location-button"
+      >
+        BOOK YOUR STAY
+      </a>
 
     </div>
 
 
-    <div class="footer-copy">
+    <div class="location-placeholder">
 
-      © 2026 Lee's Place Apartelle
+      <img
+        src="https://raw.githubusercontent.com/mickeymoto99-rgb/lees-place-booking/main/images/hero.png"
+        alt="Lee's Place Apartelle"
+      >
 
     </div>
 
-  </footer>
+  </section>
+
+</main>
 
 
-  <script src="app.js"></script>
+<footer>
+
+  <div class="footer-logo">
+
+    LEE'S PLACE
+
+    <span>
+      APARTELLE
+    </span>
+
+  </div>
+
+
+  <div class="footer-info">
+
+    <span>
+      Lanot, Roxas City, Capiz
+    </span>
+
+    <span>
+      Comfort • Convenience • Home
+    </span>
+
+  </div>
+
+
+  <div class="footer-copy">
+
+    © 2026 Lee's Place Apartelle
+
+  </div>
+
+</footer>
+
+
+<script src="app.js"></script>
 
 </body>
 </html>
