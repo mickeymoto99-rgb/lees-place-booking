@@ -1,3 +1,8 @@
+/* =========================================================
+   LEE'S PLACE APARTELLE
+   MAIN WEBSITE DESIGN
+========================================================= */
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -10,9 +15,14 @@ html {
 
 body {
   font-family: Georgia, "Times New Roman", serif;
-  color: #29251f;
-  background: #f8f5ef;
+  background: #f7f3ed;
+  color: #332c24;
   line-height: 1.6;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
 }
 
 button,
@@ -27,323 +37,488 @@ button {
 }
 
 
-/* =========================
-   HERO
-========================= */
+/* =========================================================
+   HEADER
+========================================================= */
 
-.hero {
-  position: relative;
-  min-height: 760px;
-  color: #fff;
-  background:
-    linear-gradient(
-      rgba(34, 29, 22, 0.52),
-      rgba(34, 29, 22, 0.62)
-    ),
-    url("https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=2000&q=85")
-    center / cover no-repeat;
-}
-
-.hero-overlay {
+.site-header {
   position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(0, 0, 0, 0.18),
-    rgba(0, 0, 0, 0.05) 45%,
-    rgba(0, 0, 0, 0.35)
-  );
-  pointer-events: none;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 20;
+  background: rgba(45, 38, 31, 0.25);
+  border-bottom: 1px solid rgba(255,255,255,0.18);
+  backdrop-filter: blur(5px);
 }
 
-
-/* =========================
-   NAVIGATION
-========================= */
-
-.top-nav {
-  position: relative;
-  z-index: 2;
-  width: min(1200px, calc(100% - 48px));
+.nav-container {
+  width: min(1180px, calc(100% - 48px));
+  height: 88px;
   margin: auto;
-  padding: 28px 0;
+
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
 }
 
-.brand {
-  display: flex;
-  flex-direction: column;
+.nav-logo {
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: 3px;
   line-height: 1;
 }
 
-.brand-name {
-  font-size: 22px;
-  font-weight: bold;
-  letter-spacing: 4px;
-}
-
-.brand-subtitle {
+.nav-logo span {
+  display: block;
   margin-top: 7px;
-  font-family: Arial, sans-serif;
-  font-size: 10px;
+  font-size: 8px;
+  font-weight: 400;
   letter-spacing: 5px;
-  opacity: 0.85;
+  text-align: center;
 }
 
-.book-button {
-  display: inline-block;
-  padding: 13px 24px;
-  color: #fff;
-  border: 1px solid rgba(255,255,255,0.75);
-  text-decoration: none;
-  font-family: Arial, sans-serif;
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.4px;
+  color: white;
+}
+
+.main-nav a {
+  transition: opacity 0.25s ease;
+}
+
+.main-nav a:hover {
+  opacity: 0.65;
+}
+
+.nav-book {
+  padding: 12px 19px;
+  border: 1px solid rgba(255,255,255,0.8);
+}
+
+.nav-book:hover {
+  background: white;
+  color: #332c24;
+  opacity: 1 !important;
+}
+
+.mobile-menu {
+  display: none;
+
+  border: none;
+  background: transparent;
+  color: white;
+  font-size: 25px;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+  position: relative;
+  min-height: 720px;
+
+  background: #2e2822;
+  overflow: hidden;
+}
+
+.hero-image {
+  position: absolute;
+  inset: 0;
+
+  background-image:
+    linear-gradient(
+      rgba(35, 29, 24, 0.12),
+      rgba(35, 29, 24, 0.22)
+    ),
+    url("images/hero.png");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.hero-bottom {
+  position: absolute;
+  z-index: 5;
+
+  left: 50%;
+  bottom: 70px;
+
+  width: min(1180px, calc(100% - 48px));
+
+  transform: translateX(-50%);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.hero-tagline {
+  color: white;
+
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 12px;
-  font-weight: bold;
+  font-weight: 700;
+  letter-spacing: 2.8px;
+
+  text-shadow: 0 2px 10px rgba(0,0,0,0.45);
+}
+
+.hero-tagline span {
+  margin: 0 7px;
+  opacity: 0.7;
+}
+
+.hero-book-button {
+  display: inline-block;
+
+  padding: 16px 28px;
+
+  background: #fff;
+  color: #3b332a;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 10px;
+  font-weight: 700;
   letter-spacing: 1.5px;
+
   transition: 0.25s ease;
 }
 
-.book-button:hover {
-  background: #fff;
-  color: #29251f;
+.hero-book-button:hover {
+  background: #3e342a;
+  color: white;
 }
 
 
-/* =========================
-   HERO CONTENT
-========================= */
+/* =========================================================
+   BOOKING SEARCH
+========================================================= */
 
-.hero-content {
+.booking-wrapper {
   position: relative;
-  z-index: 2;
-  width: min(1200px, calc(100% - 48px));
-  margin: auto;
-  padding-top: 90px;
+  z-index: 10;
+
+  width: min(1120px, calc(100% - 48px));
+  margin: -65px auto 0;
 }
 
-.hero-text {
-  max-width: 650px;
+.booking-card {
+  padding: 35px;
+
+  background: rgba(255,255,255,0.98);
+
+  box-shadow:
+    0 18px 50px rgba(45, 35, 25, 0.15);
 }
 
-.eyebrow,
-.section-label {
-  font-family: Arial, sans-serif;
-  font-size: 11px;
-  font-weight: bold;
-  letter-spacing: 3px;
+.booking-heading {
+  margin-bottom: 25px;
 }
 
-.eyebrow {
-  margin-bottom: 15px;
-  opacity: 0.9;
+.booking-heading p,
+.section-heading p,
+.result-heading p,
+.location-content > p {
+  margin-bottom: 7px;
+
+  color: #9a7b57;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
 }
 
-.hero-text h1 {
-  font-size: clamp(48px, 7vw, 82px);
-  line-height: 0.98;
+.booking-heading h1 {
+  font-size: 31px;
   font-weight: normal;
-  letter-spacing: -2px;
+  line-height: 1.2;
 }
 
-.hero-description {
-  margin-top: 25px;
-  font-size: 18px;
-  line-height: 1.7;
-  color: rgba(255,255,255,0.9);
-}
+.booking-heading span {
+  display: block;
+  margin-top: 5px;
 
+  color: #81776c;
 
-/* =========================
-   SEARCH CARD
-========================= */
-
-.booking-search {
-  margin-top: 100px;
-  background: rgba(255,255,255,0.97);
-  color: #29251f;
-  padding: 25px 28px 18px;
-  box-shadow: 0 15px 45px rgba(0,0,0,0.22);
-}
-
-.search-title {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  margin-bottom: 22px;
-}
-
-.search-title span {
-  font-size: 20px;
-  font-weight: bold;
-  letter-spacing: 1px;
-}
-
-.search-title small {
-  font-family: Arial, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 12px;
-  color: #81796d;
 }
 
 .search-fields {
   display: grid;
-  grid-template-columns: 1.15fr 1.15fr 0.7fr 0.8fr 1fr 1.35fr;
+  grid-template-columns:
+    1fr
+    1fr
+    0.8fr
+    0.8fr
+    1fr
+    1.25fr;
+
   gap: 10px;
-  align-items: stretch;
 }
 
 .search-field {
-  min-height: 74px;
-  padding: 12px 14px;
-  border: 1px solid #ddd6ca;
-  background: #fff;
+  min-height: 67px;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+  padding: 10px 13px;
+
+  border: 1px solid #ded6ca;
+  background: #fff;
 }
 
 .search-field label {
-  margin-bottom: 5px;
-  font-family: Arial, sans-serif;
-  font-size: 9px;
-  font-weight: bold;
-  letter-spacing: 1.5px;
-  color: #756d61;
+  margin-bottom: 4px;
+
+  color: #7e7367;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 1.4px;
 }
 
 .search-field input,
 .search-field select {
   width: 100%;
+
   border: none;
   outline: none;
   background: transparent;
-  color: #29251f;
-  font-size: 15px;
+
+  color: #332c24;
+
+  font-size: 14px;
 }
 
-.search-field small {
-  font-family: Arial, sans-serif;
-  font-size: 9px;
-  color: #9a9185;
-}
+.search-button {
+  min-height: 67px;
 
-.search-button,
-.submit-button {
   border: none;
-  background: #40382e;
-  color: #fff;
-  font-family: Arial, sans-serif;
-  font-size: 12px;
-  font-weight: bold;
-  letter-spacing: 1.2px;
+
+  background: #463a2e;
+  color: white;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.3px;
+
   transition: 0.25s ease;
 }
 
-.search-button:hover,
-.submit-button:hover {
-  background: #211d18;
+.search-button:hover {
+  background: #251f1a;
 }
 
 .search-message {
   min-height: 20px;
-  padding-top: 10px;
-  font-family: Arial, sans-serif;
-  font-size: 12px;
-  color: #8b2e2e;
+  padding-top: 9px;
+
+  color: #9a3a32;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11px;
 }
 
 
-/* =========================
-   BENEFITS
-========================= */
+/* =========================================================
+   GENERAL SECTION
+========================================================= */
 
-.benefits {
-  width: min(1200px, calc(100% - 48px));
-  margin: auto;
-  padding: 95px 0;
+.section-heading {
   text-align: center;
 }
 
-.section-label {
-  color: #8c7558;
-}
+.section-heading h2,
+.result-heading h2 {
+  color: #332c24;
 
-.benefits h2,
-.results h2,
-.booking-section h2,
-.confirmation h2 {
-  margin-top: 10px;
-  font-size: clamp(30px, 4vw, 46px);
+  font-size: clamp(30px, 4vw, 45px);
   font-weight: normal;
   line-height: 1.2;
 }
 
-.benefit-grid {
+.section-heading span {
+  display: block;
+
+  max-width: 550px;
+  margin: 10px auto 0;
+
+  color: #80766b;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+}
+
+
+/* =========================================================
+   AMENITIES
+========================================================= */
+
+.amenities-section {
+  width: min(1120px, calc(100% - 48px));
+  margin: auto;
+
+  padding: 105px 0 90px;
+}
+
+.amenities-grid {
   margin-top: 55px;
+
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 20px;
+
+  border-top: 1px solid #dfd6c9;
+  border-bottom: 1px solid #dfd6c9;
 }
 
-.benefit-card {
+.amenity {
   padding: 35px 20px;
-  background: #fff;
-  border: 1px solid #ebe4d8;
+
+  text-align: center;
+
+  border-right: 1px solid #dfd6c9;
 }
 
-.benefit-icon {
-  margin-bottom: 18px;
-  font-size: 25px;
-  color: #9b805f;
+.amenity:last-child {
+  border-right: none;
 }
 
-.benefit-card h3 {
-  margin-bottom: 10px;
-  font-size: 18px;
-  font-weight: normal;
+.amenity-icon {
+  height: 38px;
+  margin-bottom: 12px;
+
+  color: #9a7b57;
+
+  font-size: 24px;
 }
 
-.benefit-card p {
-  font-family: Arial, sans-serif;
-  font-size: 12px;
-  color: #777066;
+.amenity h3 {
+  margin-bottom: 8px;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+}
+
+.amenity p {
+  color: #83796d;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  line-height: 1.6;
 }
 
 
-/* =========================
-   RESULTS
-========================= */
+/* =========================================================
+   ROOMS
+========================================================= */
+
+.rooms-section {
+  padding: 100px 0 110px;
+
+  background: #eee7dc;
+}
+
+.rooms-section > .section-heading,
+.rooms-intro,
+.results {
+  width: min(1120px, calc(100% - 48px));
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.rooms-intro {
+  margin-top: 50px;
+  margin-bottom: 30px;
+
+  display: flex;
+  justify-content: space-between;
+
+  padding: 18px 0;
+
+  border-top: 1px solid #d7ccbd;
+  border-bottom: 1px solid #d7ccbd;
+}
+
+.rooms-intro div {
+  display: flex;
+  flex-direction: column;
+}
+
+.rooms-intro strong {
+  color: #4a3c2f;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 10px;
+  letter-spacing: 1.5px;
+}
+
+.rooms-intro span {
+  margin-top: 3px;
+
+  color: #877b6d;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11px;
+}
 
 .results {
-  width: min(1100px, calc(100% - 48px));
-  margin: auto;
-  padding: 40px 0 90px;
+  padding-top: 15px;
+}
+
+.result-heading {
+  margin-bottom: 30px;
+
   text-align: center;
 }
 
-.results > p:not(.section-label) {
-  margin-top: 10px;
-  font-family: Arial, sans-serif;
-  color: #766e64;
+.result-heading span {
+  display: block;
+  margin-top: 7px;
+
+  color: #81766a;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11px;
 }
 
 .room-list {
-  margin-top: 40px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  text-align: left;
+  gap: 25px;
 }
 
 .room-card {
   overflow: hidden;
-  background: #fff;
-  border: 1px solid #e7dfd2;
+
+  background: white;
+
+  box-shadow: 0 10px 30px rgba(50,40,30,0.08);
 }
 
 .room-image {
-  height: 220px;
+  height: 230px;
+
   background-size: cover;
   background-position: center;
 }
@@ -353,64 +528,87 @@ button {
 }
 
 .room-content h3 {
+  color: #3b3026;
+
   font-size: 23px;
   font-weight: normal;
 }
 
 .room-description {
+  min-height: 42px;
   margin: 8px 0 18px;
-  font-family: Arial, sans-serif;
-  font-size: 13px;
-  color: #756d61;
+
+  color: #7d7368;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11px;
 }
 
 .room-details {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 20px;
-  font-family: Arial, sans-serif;
-  font-size: 12px;
+  align-items: center;
+
+  margin-bottom: 18px;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11px;
 }
 
 .room-price {
-  font-size: 19px;
-  font-weight: bold;
+  color: #3f3429;
+
+  font-size: 18px;
+  font-weight: 700;
 }
 
 .select-room {
   width: 100%;
-  padding: 13px;
+  padding: 14px;
+
   border: none;
-  background: #40382e;
-  color: #fff;
-  font-family: Arial, sans-serif;
-  font-size: 11px;
-  font-weight: bold;
-  letter-spacing: 1px;
+
+  background: #463a2e;
+  color: white;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1.4px;
+
+  transition: 0.25s ease;
+}
+
+.select-room:hover {
+  background: #251f1a;
 }
 
 
-/* =========================
+/* =========================================================
    BOOKING FORM
-========================= */
+========================================================= */
 
 .booking-section {
   width: min(900px, calc(100% - 48px));
   margin: auto;
-  padding: 50px 0 100px;
-}
 
-.booking-intro {
-  margin-top: 10px;
-  font-family: Arial, sans-serif;
-  color: #766e64;
+  padding: 100px 0;
 }
 
 .selected-summary {
-  margin: 30px 0;
-  padding: 20px;
-  background: #eee8dd;
-  border-left: 4px solid #9b805f;
+  margin: 35px 0;
+
+  padding: 22px;
+
+  background: #eee7dc;
+
+  border-left: 4px solid #9a7b57;
+
+  color: #55483b;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  line-height: 1.9;
 }
 
 .form-grid {
@@ -430,27 +628,34 @@ button {
 
 .form-field label {
   margin-bottom: 7px;
-  font-family: Arial, sans-serif;
-  font-size: 10px;
-  font-weight: bold;
-  letter-spacing: 1px;
-  color: #655d53;
+
+  color: #6f655a;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
 }
 
 .form-field label span {
+  color: #a79c90;
   font-weight: normal;
-  color: #aaa196;
 }
 
 .form-field input,
 .form-field select,
 .form-field textarea {
   width: 100%;
+
   padding: 14px;
-  border: 1px solid #d9d1c5;
+
+  border: 1px solid #d8cfc2;
   outline: none;
-  background: #fff;
-  color: #29251f;
+
+  background: white;
+  color: #332c24;
+
+  font-size: 13px;
 }
 
 .form-field textarea {
@@ -460,114 +665,308 @@ button {
 .form-field input:focus,
 .form-field select:focus,
 .form-field textarea:focus {
-  border-color: #9b805f;
+  border-color: #9a7b57;
 }
 
 .submit-button {
   width: 100%;
+
   margin-top: 25px;
-  padding: 16px;
+  padding: 17px;
+
+  border: none;
+
+  background: #463a2e;
+  color: white;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+.submit-button:hover {
+  background: #251f1a;
 }
 
 .booking-message {
-  margin-top: 12px;
-  font-family: Arial, sans-serif;
-  font-size: 12px;
+  margin-top: 10px;
+
   text-align: center;
+
+  color: #963d35;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11px;
 }
 
 
-/* =========================
+/* =========================================================
    CONFIRMATION
-========================= */
+========================================================= */
 
 .confirmation {
-  width: min(800px, calc(100% - 48px));
+  width: min(750px, calc(100% - 48px));
   margin: auto;
-  padding: 80px 0 120px;
+
+  padding: 100px 0;
+
   text-align: center;
 }
 
-.confirmation > p:not(.section-label) {
-  margin-top: 12px;
-  font-family: Arial, sans-serif;
-  color: #756d61;
+.confirmation-icon {
+  width: 58px;
+  height: 58px;
+
+  margin: 0 auto 25px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #463a2e;
+  color: white;
+
+  font-size: 25px;
+}
+
+.confirmation > p:first-of-type {
+  color: #9a7b57;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.confirmation h2 {
+  margin-top: 8px;
+
+  font-size: 45px;
+  font-weight: normal;
+}
+
+.confirmation > span {
+  display: block;
+  margin-top: 8px;
+
+  color: #80766b;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
 }
 
 .booking-id {
   max-width: 400px;
-  margin: 35px auto 20px;
+
+  margin: 30px auto 20px;
   padding: 25px;
-  background: #fff;
-  border: 1px solid #ded5c8;
+
+  background: white;
+
+  border: 1px solid #ddd4c7;
 }
 
-.booking-id span {
+.booking-id small {
   display: block;
-  font-family: Arial, sans-serif;
-  font-size: 10px;
+
+  color: #928679;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 8px;
   letter-spacing: 2px;
-  color: #8b8174;
 }
 
 .booking-id strong {
   display: block;
   margin-top: 8px;
-  font-size: 27px;
+
+  color: #3d3228;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 24px;
   letter-spacing: 1px;
 }
 
 .confirmation-note {
-  font-size: 12px;
+  color: #81766a;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11px;
 }
 
 
-/* =========================
-   FOOTER
-========================= */
+/* =========================================================
+   LOCATION
+========================================================= */
 
-footer {
-  padding: 45px max(24px, calc((100% - 1200px) / 2));
-  background: #302a23;
-  color: #fff;
+.location-section {
+  min-height: 430px;
+
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
+  grid-template-columns: 1fr 1fr;
+
+  background: #3a3027;
+  color: white;
 }
 
-.footer-item {
+.location-content {
+  padding: 80px max(40px, calc((100vw - 1120px) / 2));
+
   display: flex;
   flex-direction: column;
+  justify-content: center;
 }
 
-.footer-item strong {
-  font-family: Arial, sans-serif;
-  font-size: 10px;
-  letter-spacing: 1.5px;
+.location-content > p {
+  color: #c4a37a;
 }
 
-.footer-item span {
-  margin-top: 6px;
-  font-family: Arial, sans-serif;
+.location-content h2 {
+  margin-bottom: 15px;
+
+  font-size: 39px;
+  font-weight: normal;
+}
+
+.location-content > span {
+  color: #c7beb4;
+
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 12px;
-  color: #c7beb2;
+  line-height: 1.8;
+}
+
+.location-button {
+  width: fit-content;
+
+  margin-top: 28px;
+  padding: 13px 22px;
+
+  border: 1px solid rgba(255,255,255,0.6);
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1.3px;
+}
+
+.location-button:hover {
+  background: white;
+  color: #3a3027;
+}
+
+.location-placeholder {
+  min-height: 430px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  background:
+    linear-gradient(
+      rgba(70,57,44,0.55),
+      rgba(70,57,44,0.55)
+    ),
+    url("images/hero.png");
+
+  background-size: cover;
+  background-position: center;
+
+  text-align: center;
+}
+
+.location-placeholder span {
+  font-size: 35px;
+  letter-spacing: 5px;
+}
+
+.location-placeholder small {
+  margin-top: 8px;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 9px;
+  letter-spacing: 3px;
 }
 
 
-/* =========================
-   UTILITIES
-========================= */
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+  min-height: 150px;
+
+  padding: 40px max(24px, calc((100vw - 1120px) / 2));
+
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+
+  background: #28221d;
+  color: white;
+}
+
+.footer-logo {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: 3px;
+}
+
+.footer-logo span {
+  display: block;
+  margin-top: 5px;
+
+  color: #b4a89b;
+
+  font-size: 8px;
+  font-weight: normal;
+  letter-spacing: 4px;
+}
+
+.footer-info {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+
+  color: #a99f94;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 10px;
+}
+
+.footer-copy {
+  text-align: right;
+
+  color: #81776d;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 9px;
+}
+
+
+/* =========================================================
+   HIDDEN
+========================================================= */
 
 .hidden {
   display: none !important;
 }
 
 
-/* =========================
+/* =========================================================
    TABLET
-========================= */
+========================================================= */
 
 @media (max-width: 1000px) {
+
+  .main-nav {
+    gap: 17px;
+  }
 
   .search-fields {
     grid-template-columns: repeat(3, 1fr);
@@ -577,8 +976,16 @@ footer {
     min-height: 60px;
   }
 
-  .benefit-grid {
+  .amenities-grid {
     grid-template-columns: repeat(3, 1fr);
+  }
+
+  .amenity:nth-child(3) {
+    border-right: none;
+  }
+
+  .amenity:nth-child(-n+3) {
+    border-bottom: 1px solid #dfd6c9;
   }
 
   .room-list {
@@ -588,90 +995,126 @@ footer {
 }
 
 
-/* =========================
+/* =========================================================
    MOBILE
-========================= */
+========================================================= */
 
 @media (max-width: 700px) {
 
-  .hero {
-    min-height: auto;
-    padding-bottom: 35px;
-  }
-
-  .top-nav {
+  .nav-container {
     width: calc(100% - 32px);
-    padding: 20px 0;
+    height: 72px;
   }
 
-  .brand-name {
-    font-size: 17px;
-    letter-spacing: 2.5px;
-  }
-
-  .brand-subtitle {
-    font-size: 8px;
-    letter-spacing: 3px;
-  }
-
-  .book-button {
-    padding: 10px 14px;
-    font-size: 9px;
-  }
-
-  .hero-content {
-    width: calc(100% - 32px);
-    padding-top: 55px;
-  }
-
-  .hero-text h1 {
-    font-size: 50px;
-  }
-
-  .hero-description {
+  .nav-logo {
     font-size: 15px;
   }
 
-  .booking-search {
-    margin-top: 55px;
-    padding: 20px;
+  .main-nav {
+    display: none;
   }
 
-  .search-title {
+  .mobile-menu {
     display: block;
   }
 
-  .search-title small {
-    display: block;
-    margin-top: 4px;
+
+  .hero {
+    min-height: 620px;
+  }
+
+  .hero-image {
+    background-position: center;
+  }
+
+  .hero-bottom {
+    bottom: 35px;
+
+    width: calc(100% - 32px);
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .hero-tagline {
+    font-size: 9px;
+    letter-spacing: 1.8px;
+  }
+
+  .hero-book-button {
+    padding: 14px 20px;
+  }
+
+
+  .booking-wrapper {
+    width: calc(100% - 28px);
+    margin-top: -30px;
+  }
+
+  .booking-card {
+    padding: 25px 18px;
+  }
+
+  .booking-heading h1 {
+    font-size: 27px;
   }
 
   .search-fields {
     grid-template-columns: 1fr;
   }
 
+  .search-field,
   .search-button {
-    min-height: 58px;
+    min-height: 62px;
   }
 
-  .benefits {
+
+  .amenities-section {
     width: calc(100% - 32px);
-    padding: 70px 0;
+    padding: 75px 0;
   }
 
-  .benefit-grid {
+  .amenities-grid {
     grid-template-columns: 1fr;
+
     margin-top: 35px;
   }
 
-  .results,
-  .booking-section,
-  .confirmation {
+  .amenity {
+    border-right: none;
+    border-bottom: 1px solid #dfd6c9;
+  }
+
+  .amenity:last-child {
+    border-bottom: none;
+  }
+
+
+  .rooms-section {
+    padding: 75px 0;
+  }
+
+  .rooms-section > .section-heading,
+  .rooms-intro,
+  .results {
     width: calc(100% - 32px);
+  }
+
+  .rooms-intro {
+    flex-direction: column;
+    gap: 15px;
   }
 
   .room-list {
     grid-template-columns: 1fr;
+  }
+
+
+  .booking-section {
+    width: calc(100% - 32px);
+    padding: 75px 0;
   }
 
   .form-grid {
@@ -682,9 +1125,33 @@ footer {
     grid-column: auto;
   }
 
+
+  .location-section {
+    grid-template-columns: 1fr;
+  }
+
+  .location-content {
+    padding: 65px 25px;
+  }
+
+  .location-placeholder {
+    min-height: 280px;
+  }
+
+
   footer {
     grid-template-columns: 1fr;
     gap: 25px;
+
+    text-align: center;
+  }
+
+  .footer-info {
+    text-align: center;
+  }
+
+  .footer-copy {
+    text-align: center;
   }
 
 }
