@@ -1,0 +1,690 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Georgia, "Times New Roman", serif;
+  color: #29251f;
+  background: #f8f5ef;
+  line-height: 1.6;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+  position: relative;
+  min-height: 760px;
+  color: #fff;
+  background:
+    linear-gradient(
+      rgba(34, 29, 22, 0.52),
+      rgba(34, 29, 22, 0.62)
+    ),
+    url("https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=2000&q=85")
+    center / cover no-repeat;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.18),
+    rgba(0, 0, 0, 0.05) 45%,
+    rgba(0, 0, 0, 0.35)
+  );
+  pointer-events: none;
+}
+
+
+/* =========================
+   NAVIGATION
+========================= */
+
+.top-nav {
+  position: relative;
+  z-index: 2;
+  width: min(1200px, calc(100% - 48px));
+  margin: auto;
+  padding: 28px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
+
+.brand-name {
+  font-size: 22px;
+  font-weight: bold;
+  letter-spacing: 4px;
+}
+
+.brand-subtitle {
+  margin-top: 7px;
+  font-family: Arial, sans-serif;
+  font-size: 10px;
+  letter-spacing: 5px;
+  opacity: 0.85;
+}
+
+.book-button {
+  display: inline-block;
+  padding: 13px 24px;
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.75);
+  text-decoration: none;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+  transition: 0.25s ease;
+}
+
+.book-button:hover {
+  background: #fff;
+  color: #29251f;
+}
+
+
+/* =========================
+   HERO CONTENT
+========================= */
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  width: min(1200px, calc(100% - 48px));
+  margin: auto;
+  padding-top: 90px;
+}
+
+.hero-text {
+  max-width: 650px;
+}
+
+.eyebrow,
+.section-label {
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+  font-weight: bold;
+  letter-spacing: 3px;
+}
+
+.eyebrow {
+  margin-bottom: 15px;
+  opacity: 0.9;
+}
+
+.hero-text h1 {
+  font-size: clamp(48px, 7vw, 82px);
+  line-height: 0.98;
+  font-weight: normal;
+  letter-spacing: -2px;
+}
+
+.hero-description {
+  margin-top: 25px;
+  font-size: 18px;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.9);
+}
+
+
+/* =========================
+   SEARCH CARD
+========================= */
+
+.booking-search {
+  margin-top: 100px;
+  background: rgba(255,255,255,0.97);
+  color: #29251f;
+  padding: 25px 28px 18px;
+  box-shadow: 0 15px 45px rgba(0,0,0,0.22);
+}
+
+.search-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 22px;
+}
+
+.search-title span {
+  font-size: 20px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.search-title small {
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  color: #81796d;
+}
+
+.search-fields {
+  display: grid;
+  grid-template-columns: 1.15fr 1.15fr 0.7fr 0.8fr 1fr 1.35fr;
+  gap: 10px;
+  align-items: stretch;
+}
+
+.search-field {
+  min-height: 74px;
+  padding: 12px 14px;
+  border: 1px solid #ddd6ca;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.search-field label {
+  margin-bottom: 5px;
+  font-family: Arial, sans-serif;
+  font-size: 9px;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+  color: #756d61;
+}
+
+.search-field input,
+.search-field select {
+  width: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #29251f;
+  font-size: 15px;
+}
+
+.search-field small {
+  font-family: Arial, sans-serif;
+  font-size: 9px;
+  color: #9a9185;
+}
+
+.search-button,
+.submit-button {
+  border: none;
+  background: #40382e;
+  color: #fff;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 1.2px;
+  transition: 0.25s ease;
+}
+
+.search-button:hover,
+.submit-button:hover {
+  background: #211d18;
+}
+
+.search-message {
+  min-height: 20px;
+  padding-top: 10px;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  color: #8b2e2e;
+}
+
+
+/* =========================
+   BENEFITS
+========================= */
+
+.benefits {
+  width: min(1200px, calc(100% - 48px));
+  margin: auto;
+  padding: 95px 0;
+  text-align: center;
+}
+
+.section-label {
+  color: #8c7558;
+}
+
+.benefits h2,
+.results h2,
+.booking-section h2,
+.confirmation h2 {
+  margin-top: 10px;
+  font-size: clamp(30px, 4vw, 46px);
+  font-weight: normal;
+  line-height: 1.2;
+}
+
+.benefit-grid {
+  margin-top: 55px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+}
+
+.benefit-card {
+  padding: 35px 20px;
+  background: #fff;
+  border: 1px solid #ebe4d8;
+}
+
+.benefit-icon {
+  margin-bottom: 18px;
+  font-size: 25px;
+  color: #9b805f;
+}
+
+.benefit-card h3 {
+  margin-bottom: 10px;
+  font-size: 18px;
+  font-weight: normal;
+}
+
+.benefit-card p {
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  color: #777066;
+}
+
+
+/* =========================
+   RESULTS
+========================= */
+
+.results {
+  width: min(1100px, calc(100% - 48px));
+  margin: auto;
+  padding: 40px 0 90px;
+  text-align: center;
+}
+
+.results > p:not(.section-label) {
+  margin-top: 10px;
+  font-family: Arial, sans-serif;
+  color: #766e64;
+}
+
+.room-list {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  text-align: left;
+}
+
+.room-card {
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid #e7dfd2;
+}
+
+.room-image {
+  height: 220px;
+  background-size: cover;
+  background-position: center;
+}
+
+.room-content {
+  padding: 24px;
+}
+
+.room-content h3 {
+  font-size: 23px;
+  font-weight: normal;
+}
+
+.room-description {
+  margin: 8px 0 18px;
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  color: #756d61;
+}
+
+.room-details {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+}
+
+.room-price {
+  font-size: 19px;
+  font-weight: bold;
+}
+
+.select-room {
+  width: 100%;
+  padding: 13px;
+  border: none;
+  background: #40382e;
+  color: #fff;
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+
+/* =========================
+   BOOKING FORM
+========================= */
+
+.booking-section {
+  width: min(900px, calc(100% - 48px));
+  margin: auto;
+  padding: 50px 0 100px;
+}
+
+.booking-intro {
+  margin-top: 10px;
+  font-family: Arial, sans-serif;
+  color: #766e64;
+}
+
+.selected-summary {
+  margin: 30px 0;
+  padding: 20px;
+  background: #eee8dd;
+  border-left: 4px solid #9b805f;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-field.full-width {
+  grid-column: 1 / -1;
+}
+
+.form-field label {
+  margin-bottom: 7px;
+  font-family: Arial, sans-serif;
+  font-size: 10px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: #655d53;
+}
+
+.form-field label span {
+  font-weight: normal;
+  color: #aaa196;
+}
+
+.form-field input,
+.form-field select,
+.form-field textarea {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid #d9d1c5;
+  outline: none;
+  background: #fff;
+  color: #29251f;
+}
+
+.form-field textarea {
+  resize: vertical;
+}
+
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus {
+  border-color: #9b805f;
+}
+
+.submit-button {
+  width: 100%;
+  margin-top: 25px;
+  padding: 16px;
+}
+
+.booking-message {
+  margin-top: 12px;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  text-align: center;
+}
+
+
+/* =========================
+   CONFIRMATION
+========================= */
+
+.confirmation {
+  width: min(800px, calc(100% - 48px));
+  margin: auto;
+  padding: 80px 0 120px;
+  text-align: center;
+}
+
+.confirmation > p:not(.section-label) {
+  margin-top: 12px;
+  font-family: Arial, sans-serif;
+  color: #756d61;
+}
+
+.booking-id {
+  max-width: 400px;
+  margin: 35px auto 20px;
+  padding: 25px;
+  background: #fff;
+  border: 1px solid #ded5c8;
+}
+
+.booking-id span {
+  display: block;
+  font-family: Arial, sans-serif;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: #8b8174;
+}
+
+.booking-id strong {
+  display: block;
+  margin-top: 8px;
+  font-size: 27px;
+  letter-spacing: 1px;
+}
+
+.confirmation-note {
+  font-size: 12px;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+  padding: 45px max(24px, calc((100% - 1200px) / 2));
+  background: #302a23;
+  color: #fff;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
+.footer-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-item strong {
+  font-family: Arial, sans-serif;
+  font-size: 10px;
+  letter-spacing: 1.5px;
+}
+
+.footer-item span {
+  margin-top: 6px;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  color: #c7beb2;
+}
+
+
+/* =========================
+   UTILITIES
+========================= */
+
+.hidden {
+  display: none !important;
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 1000px) {
+
+  .search-fields {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .search-button {
+    min-height: 60px;
+  }
+
+  .benefit-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .room-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 700px) {
+
+  .hero {
+    min-height: auto;
+    padding-bottom: 35px;
+  }
+
+  .top-nav {
+    width: calc(100% - 32px);
+    padding: 20px 0;
+  }
+
+  .brand-name {
+    font-size: 17px;
+    letter-spacing: 2.5px;
+  }
+
+  .brand-subtitle {
+    font-size: 8px;
+    letter-spacing: 3px;
+  }
+
+  .book-button {
+    padding: 10px 14px;
+    font-size: 9px;
+  }
+
+  .hero-content {
+    width: calc(100% - 32px);
+    padding-top: 55px;
+  }
+
+  .hero-text h1 {
+    font-size: 50px;
+  }
+
+  .hero-description {
+    font-size: 15px;
+  }
+
+  .booking-search {
+    margin-top: 55px;
+    padding: 20px;
+  }
+
+  .search-title {
+    display: block;
+  }
+
+  .search-title small {
+    display: block;
+    margin-top: 4px;
+  }
+
+  .search-fields {
+    grid-template-columns: 1fr;
+  }
+
+  .search-button {
+    min-height: 58px;
+  }
+
+  .benefits {
+    width: calc(100% - 32px);
+    padding: 70px 0;
+  }
+
+  .benefit-grid {
+    grid-template-columns: 1fr;
+    margin-top: 35px;
+  }
+
+  .results,
+  .booking-section,
+  .confirmation {
+    width: calc(100% - 32px);
+  }
+
+  .room-list {
+    grid-template-columns: 1fr;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-field.full-width {
+    grid-column: auto;
+  }
+
+  footer {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+}
