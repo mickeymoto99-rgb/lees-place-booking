@@ -492,35 +492,6 @@ function openBookingForm(
 // That will be our next step.
 // ==========================================
 
-bookingForm.addEventListener("submit", event => {
-
-  event.preventDefault();
-
-  bookingMessage.textContent =
-    "The availability system is connected. Booking submission will be connected next.";
-
-});
-
-
 // ==========================================
-// DATE FORMATTER
+// BOOKING FORM SUBMISSION
 // ==========================================
-
-function formatDate(dateString) {
-
-  const date =
-    new Date(
-      dateString + "T00:00:00"
-    );
-
-
-  return date.toLocaleDateString(
-    "en-US",
-    {
-      month: "short",
-      day: "numeric",
-      year: "numeric"
-    }
-  );
-
-}
