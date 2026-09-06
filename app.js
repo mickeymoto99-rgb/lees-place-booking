@@ -386,42 +386,41 @@ function displayRooms(
   });
 
 
-  // ------------------------------------------
-  // SELECT ROOM
-  // ------------------------------------------
+// ------------------------------------------
+// SELECT ROOM
+// ------------------------------------------
 
-  document
-    .querySelectorAll(".select-room")
-    .forEach(button => {
+roomList.onclick = (event) => {
 
-      button.addEventListener("click", () => {
+  const button =
+    event.target.closest(".select-room");
 
-        const roomId =
-          button.dataset.roomId;
+  if (!button) {
+    return;
+  }
 
+  const roomId =
+    button.dataset.roomId;
 
-        const room =
-          rooms.find(
-            item => item.id === roomId
-          );
+  const room =
+    rooms.find(
+      item => item.id === roomId
+    );
 
+  if (!room) {
+    console.error("Room not found:", roomId);
+    return;
+  }
 
-        if (!room) {
-          return;
-        }
+  openBookingForm(
+    room,
+    arrival,
+    departure,
+    numberOfAdults,
+    numberOfChildren
+  );
 
-
-        openBookingForm(
-          room,
-          arrival,
-          departure,
-          numberOfAdults,
-          numberOfChildren
-        );
-
-      });
-
-    });
+};
 
 
   results.scrollIntoView({
