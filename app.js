@@ -1,7 +1,12 @@
 // ==========================================
 // LEE'S PLACE APARTELLE
 // BOOKING WEBSITE - FRONTEND
+// GOOGLE SHEETS AVAILABILITY CONNECTION
 // ==========================================
+
+const API_URL =
+  "https://script.google.com/macros/s/AKfycbzM7tkCiQfJTQq0VRs-kotLGLJJCvE6P266ZCbd0mgx68bmjXT7g6tP_IEgjADDW-TaPQ/exec";
+
 
 const checkIn = document.getElementById("checkIn");
 const checkOut = document.getElementById("checkOut");
@@ -27,11 +32,8 @@ const bookingId = document.getElementById("bookingId");
 
 
 // ==========================================
-// SAMPLE ROOM DATA
+// ROOM INVENTORY
 // ==========================================
-// This is temporary.
-// Later, Google Sheets will provide the
-// actual room inventory and availability.
 
 const rooms = [
   {
@@ -125,9 +127,10 @@ checkIn.addEventListener("change", () => {
 // CHECK AVAILABILITY
 // ==========================================
 
-searchBtn.addEventListener("click", () => {
+searchBtn.addEventListener("click", async () => {
 
   searchMessage.textContent = "";
+  roomList.innerHTML = "";
 
   const arrival = checkIn.value;
   const departure = checkOut.value;
@@ -150,41 +153,125 @@ searchBtn.addEventListener("click", () => {
 
   const numberOfAdults = Number(adults.value);
   const numberOfChildren = Number(children.value);
-  const totalGuests = numberOfAdults + numberOfChildren;
+  const totalGuests =
+    numberOfAdults + numberOfChildren;
 
   const selectedType = roomType.value;
 
 
   // ------------------------------------------
-  // TEMPORARY AVAILABILITY LOGIC
-  // ------------------------------------------
-  // For now, rooms are treated as available.
-  //
-  // Later this section will ask Google Sheets
-  // which rooms are actually available.
+  // SHOW LOADING
   // ------------------------------------------
 
-  let availableRooms = rooms.filter(room => {
+  searchBtn.disabled = true;
+  searchBtn.textContent = "CHECKING...";
 
-    const typeMatches =
-      selectedType === "all" ||
-      room.type === selectedType;
-
-    const capacityMatches =
-      room.capacity >= totalGuests;
-
-    return typeMatches && capacityMatches;
-
-  });
+  searchMessage.textContent =
+    "Checking room availability...";
 
 
-  displayRooms(
-    availableRooms,
-    arrival,
-    departure,
-    numberOfAdults,
-    numberOfChildren
-  );
+  try {
+
+    // ----------------------------------------
+    // FIRST FILTER BY ROOM TYPE & CAPACITY
+    // ----------------------------------------
+
+    const possibleRooms = rooms.filter(room => {
+
+      const typeMatches =
+        selectedType === "all" ||
+        room.type === selectedType;
+
+      const capacityMatches =
+        room.capacity >= totalGuests;
+
+      return typeMatches && capacityMatches;
+
+    });
+
+
+    // ----------------------------------------
+    // ASK GOOGLE SHEETS ABOUT EACH ROOM
+    // ----------------------------------------
+
+    const availabilityChecks =
+      await Promise.all(
+
+        possibleRooms.map(async room => {
+
+          const response = await fetch(API_URL, {
+
+            method: "POST",
+
+            headers: {
+              "Content-Type": "text/plain;charset=utf-8"
+            },
+
+            body: JSON.stringify({
+
+              room: room.id,
+
+              checkIn: arrival,
+
+              checkOut: departure
+
+            })
+
+          });
+
+
+          const data = await response.json();
+
+
+          return {
+
+            room: room,
+
+            available: data.available === true
+
+          };
+
+        })
+
+      );
+
+
+    // ----------------------------------------
+    // ONLY SHOW AVAILABLE ROOMS
+    // ----------------------------------------
+
+    const availableRooms =
+      availabilityChecks
+        .filter(item => item.available)
+        .map(item => item.room);
+
+
+    searchMessage.textContent = "";
+
+
+    displayRooms(
+      availableRooms,
+      arrival,
+      departure,
+      numberOfAdults,
+      numberOfChildren
+    );
+
+
+  } catch (error) {
+
+    console.error(error);
+
+    searchMessage.textContent =
+      "Unable to check availability right now. Please try again.";
+
+  } finally {
+
+    searchBtn.disabled = false;
+    searchBtn.textContent =
+      "CHECK AVAILABILITY";
+
+  }
 
 });
 
@@ -208,21 +295,29 @@ function displayRooms(
 
   roomList.innerHTML = "";
 
+
   if (availableRooms.length === 0) {
 
     resultSummary.textContent =
-      "No rooms match your search.";
+      "No rooms are available for your selected dates.";
 
     roomList.innerHTML = `
+
       <div class="room-card">
+
         <div class="room-content">
+
           <h3>No rooms available</h3>
+
           <p class="room-description">
             Please try different dates, guest numbers,
             or another room type.
           </p>
+
         </div>
+
       </div>
+
     `;
 
     results.scrollIntoView({
@@ -239,9 +334,11 @@ function displayRooms(
 
   availableRooms.forEach(room => {
 
-    const card = document.createElement("article");
+    const card =
+      document.createElement("article");
 
     card.className = "room-card";
+
 
     card.innerHTML = `
 
@@ -278,7 +375,9 @@ function displayRooms(
         </button>
 
       </div>
+
     `;
+
 
     roomList.appendChild(card);
 
@@ -286,34 +385,41 @@ function displayRooms(
 
 
   // ------------------------------------------
-  // SELECT ROOM BUTTONS
+  // SELECT ROOM
   // ------------------------------------------
 
-  document.querySelectorAll(".select-room").forEach(button => {
+  document
+    .querySelectorAll(".select-room")
+    .forEach(button => {
 
-    button.addEventListener("click", () => {
+      button.addEventListener("click", () => {
 
-      const roomId = button.dataset.roomId;
+        const roomId =
+          button.dataset.roomId;
 
-      const room = rooms.find(
-        item => item.id === roomId
-      );
 
-      if (!room) {
-        return;
-      }
+        const room =
+          rooms.find(
+            item => item.id === roomId
+          );
 
-      openBookingForm(
-        room,
-        arrival,
-        departure,
-        numberOfAdults,
-        numberOfChildren
-      );
+
+        if (!room) {
+          return;
+        }
+
+
+        openBookingForm(
+          room,
+          arrival,
+          departure,
+          numberOfAdults,
+          numberOfChildren
+        );
+
+      });
 
     });
-
-  });
 
 
   results.scrollIntoView({
@@ -335,7 +441,9 @@ function openBookingForm(
   numberOfChildren
 ) {
 
-  selectedRoom.value = room.id;
+  selectedRoom.value =
+    room.id;
+
 
   selectedSummary.innerHTML = `
 
@@ -347,21 +455,28 @@ function openBookingForm(
 
     <br>
 
-    ${numberOfAdults} adult${numberOfAdults === 1 ? "" : "s"}
+    ${numberOfAdults}
+    adult${numberOfAdults === 1 ? "" : "s"}
+
     ·
-    ${numberOfChildren} child${numberOfChildren === 1 ? "" : "ren"}
+
+    ${numberOfChildren}
+    child${numberOfChildren === 1 ? "" : "ren"}
 
     <br>
 
-    ₱${room.price.toLocaleString()} per night
+    ₱${room.price.toLocaleString()}
+    per night
 
   `;
+
 
   booking.classList.remove("hidden");
 
   confirmation.classList.add("hidden");
 
   bookingMessage.textContent = "";
+
 
   booking.scrollIntoView({
     behavior: "smooth"
@@ -371,91 +486,18 @@ function openBookingForm(
 
 
 // ==========================================
-// BOOKING FORM SUBMISSION
+// CURRENT BOOKING FORM
+// ==========================================
+// We are NOT connecting the submission yet.
+// That will be our next step.
 // ==========================================
 
 bookingForm.addEventListener("submit", event => {
 
   event.preventDefault();
 
-  bookingMessage.textContent = "";
-
-  const guestName =
-    document.getElementById("guestName").value.trim();
-
-  const mobile =
-    document.getElementById("mobile").value.trim();
-
-  const email =
-    document.getElementById("email").value.trim();
-
-  const payment =
-    document.getElementById("payment").value;
-
-  const gcashRef =
-    document.getElementById("gcashRef").value.trim();
-
-  const special =
-    document.getElementById("special").value.trim();
-
-
-  if (!guestName || !mobile || !email) {
-
-    bookingMessage.textContent =
-      "Please complete all required fields.";
-
-    return;
-  }
-
-
-  // ------------------------------------------
-  // TEMPORARY BOOKING ID
-  // ------------------------------------------
-  // Later Google Apps Script will generate
-  // the official booking ID.
-  // ------------------------------------------
-
-  const temporaryId =
-    "LP-" +
-    Date.now().toString().slice(-8);
-
-
-  console.log({
-    bookingId: temporaryId,
-    guestName,
-    mobile,
-    email,
-    payment,
-    gcashRef,
-    special,
-    room: selectedRoom.value,
-    checkIn: checkIn.value,
-    checkOut: checkOut.value,
-    adults: adults.value,
-    children: children.value
-  });
-
-
-  // ------------------------------------------
-  // TEMPORARY SUCCESS
-  // ------------------------------------------
-
-  booking.classList.add("hidden");
-
-  results.classList.add("hidden");
-
-  confirmation.classList.remove("hidden");
-
-  bookingId.textContent = temporaryId;
-
-  confirmation.scrollIntoView({
-    behavior: "smooth"
-  });
-
-
-  bookingForm.reset();
-
-  checkOut.min = todayString;
+  bookingMessage.textContent =
+    "The availability system is connected. Booking submission will be connected next.";
 
 });
 
@@ -466,9 +508,11 @@ bookingForm.addEventListener("submit", event => {
 
 function formatDate(dateString) {
 
-  const date = new Date(
-    dateString + "T00:00:00"
-  );
+  const date =
+    new Date(
+      dateString + "T00:00:00"
+    );
+
 
   return date.toLocaleDateString(
     "en-US",
