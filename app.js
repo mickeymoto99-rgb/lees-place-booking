@@ -207,15 +207,17 @@ searchBtn.addEventListener("click", async () => {
               "Content-Type": "text/plain;charset=utf-8"
             },
 
-            body: JSON.stringify({
+           body: JSON.stringify({
 
-              room: room.id,
+  action: "checkAvailability",
 
-              checkIn: arrival,
+  room: room.id,
 
-              checkOut: departure
+  checkIn: arrival,
 
-            })
+  checkOut: departure
+
+})
 
           });
 
